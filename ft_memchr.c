@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 17:01:57 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/05 18:33:30 by hbang            ###   ########.fr       */
+/*   Created: 2020/11/05 17:33:41 by hbang             #+#    #+#             */
+/*   Updated: 2020/11/05 18:09:48 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	* ft_memset(void *ptr, int val, size_t size)
+void		*memchr(const void *ptf, int value, size_t num)
 {
-	size_t i;
+	const unsigned char *p;
 
-	void *temp = ptr;
-
-	i = 0;
-
-	while (i < size)
+	*p = (const unsigned char*)ptr;
+	while (p < (const unsigned char*)ptr + count && *p != ch)
 	{
-		*((unsigned char*)temp + i = (unsigned char) value;
-		i++
+		++p;
 	}
-
-	return (dest);
+	if (p < (const unsigned char*)ptr + count)
+		return (p);
+	else
+	{
+		return (0);
+	}
 }

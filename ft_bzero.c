@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hbang </var/mail/hbang>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/20 16:26:14 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/21 19:57:38 by hbang            ###   ########.fr       */
+/*   Created: 2020/11/21 19:55:33 by hbang             #+#    #+#             */
+/*   Updated: 2020/11/21 19:56:13 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strchr(const char *s, int c)
-{
-	int i;
+#include "libft.h"
 
-	i = 0;
-	if (s[i])
-	{
-		while (s[i])
-		{
-			if (s[i] == c)
-			{
-				return (*s);
-			}
-			i++;
-		}
-	}
-	return (0);
+void		ft_bzero(void *dst, size_t n)
+{
+	ft_memset(dst, 0, n);
 }

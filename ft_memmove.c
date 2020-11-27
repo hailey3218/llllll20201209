@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbang </var/mail/hbang@42.fr>              +#+  +:+       +#+        */
+/*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 18:22:49 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/09 18:23:28 by hbang            ###   ########.fr       */
+/*   Created: 2020/11/27 14:45:04 by hbang             #+#    #+#             */
+/*   Updated: 2020/11/27 14:56:49 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void		*ft_memmove(void *dst, const void *src, size_t size)
 {
-	unsigned char *buff;
-	size_t i;
+	unsigned char	*buff;
+	size_t			i;
 
 	i = 0;
 	*buff = malloc(size);

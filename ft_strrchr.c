@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbang </var/mail/hbang>                    +#+  +:+       +#+        */
+/*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/21 21:34:13 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/21 21:39:32 by hbang            ###   ########.fr       */
+/*   Created: 2020/11/27 14:42:57 by hbang             #+#    #+#             */
+/*   Updated: 2020/11/27 14:57:42 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char		*ft_strrchr(const char *str, int ch)
 {
-	char *r;
-	const char *p;
+	char		*r;
+	const char	*p;
 
 	*r = NULL;
 	*p = str;

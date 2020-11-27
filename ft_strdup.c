@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbang </var/mail/hbang>                    +#+  +:+       +#+        */
+/*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 22:34:43 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/24 22:36:21 by hbang            ###   ########.fr       */
+/*   Created: 2020/11/27 14:42:31 by hbang             #+#    #+#             */
+/*   Updated: 2020/11/27 14:57:10 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libht.h"
 
-char		*ft_strdup(cjar *s)
+char		*ft_strdup(char *s)
 {
-	char *p;
-	size_t i;
+	char	*p;
+	size_t	i;
 
 	p = (char *)malloc(ft_strlen(s) + 1);
 	i = 0;

@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 15:05:56 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/27 16:21:07 by hbang            ###   ########.fr       */
+/*   Created: 2020/11/27 17:07:20 by hbang             #+#    #+#             */
+/*   Updated: 2020/11/27 18:15:25 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_substr(char const *s, unsigned int start, size_t len)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	i;
-	unsigned int	l;
-	char			*d;
+	int		l1;
+	int		l2;
+	char	*dst;
 
-	if (s == '\0')
-	{
+	l1 = ft_strlen(s1);
+	l2 = ft_strlen(s2);
+	dst = (char *)malloc(sizeof(char) * (l1 + l2 + 1));
+	if (!(s1) && !(s2))
 		return (0);
-	}
-	d = (char *)malloc(sizeof(char) * len + 1);
-	l = ft_strlen(s)	
-	if (l > start + len)
+	else if (s1 != '\0' && s2 != '\0')
 	{
-		l = start + len;
+		memcpy(dst, s1, l1);
+		memcpy(dst + l1, s2, l1 + l2);
+		dst[l1 + l2 + 1] = '\0';
 	}
-	i = start;
-	while (i < l)
-	{
-		d[i - start] = s[i];
-		i++;
-	}
-	d[i - start] = '\0';
-	return (d);
+	return (dst);
 }

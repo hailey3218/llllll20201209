@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbang <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 15:05:56 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/02 18:31:52 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 21:32:05 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 		return (0);
 	}
 	d = (char *)malloc(sizeof(char) * len + 1);
-	l = ft_strlen(s)	
+	l = ft_strlen(s);
 	if (l > start + len)
 	{
 		l = start + len;

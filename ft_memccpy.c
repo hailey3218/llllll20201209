@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbang <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:41:45 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/02 18:09:29 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 18:42:12 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	{
 		new_d[i] = new_s[i];
 		if (new_s[i] == (unsigned char)c)
-			return (dest + (i + 1));
+			return (dst + (i + 1));
 		i++;
 	}
 	return (0);

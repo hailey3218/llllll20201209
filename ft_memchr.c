@@ -6,25 +6,27 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 17:33:41 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/02 18:11:01 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 22:57:18 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void					*ft_memchr(const void *ptf, int value, size_t num)
+void			*ft_memchr(const void *ptr, int value, size_t num)
 {
-	const unsigned char *p;
+	const char	*p;
+	void		*r;
 
-	*p = (const unsigned char*)ptr;
-	while (p < (const unsigned char*)ptr + count && *p != ch)
+	r = NULL;
+	p = (const char*)ptr;
+	while (p < (const char*)ptr + num && *p != value)
 	{
 		++p;
 	}
-	if (p < (const unsigned char*)ptr + count)
-		return (p);
-	else
+	if (p < (const char*)ptr + num)
 	{
-		return (0);
+		r = (void*)p;
+		return (r);
 	}
+	return (r);
 }

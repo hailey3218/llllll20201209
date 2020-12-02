@@ -3,30 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbang <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:42:08 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/27 14:42:12 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 23:32:36 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *lhs, const void *rhs, size_t count)
+int					ft_memcmp(const void *lhs, const void *rhs, size_t count)
 {
-	int i;
-	int r;
+	size_t			i;
+	size_t			r;
+	unsigned char	*ll;
+	unsigned char	*rr;
 
+	if (count == '\0')
+		return (0);
+	ll = (unsigned char *)lhs;
+	rr = (unsigned char *)rhs;
 	i = 0;
-	while (i != count && ((unsigned char*)lhs)[i] == ((unsigned char*)rhs)[i])
+	while (i < count)
 	{
-		++i;
+		if (ll[i] != rr[i])
+		{
+			r = ll[i] - rr[i];
+			return (r);
+		}
+		i++;
 	}
-	if (i == count)
-		r = 0;
-	else if ((unsigned char*)lhs[i] > ((unsigned char*)rhs)[i])
-		r = 1;
-	else
-		r = -1;
-	return (r);
+	return (0);
 }

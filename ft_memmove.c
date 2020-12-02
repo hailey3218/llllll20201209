@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:45:04 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/02 18:13:08 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 22:37:47 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,28 @@
 
 void		*ft_memmove(void *dst, const void *src, size_t size)
 {
-	unsigned char	*buff;
+	unsigned char	*dest;
 	size_t			i;
 
 	i = 0;
-	*buff = malloc(size);
-	while (i < size)
+	if (dst == src || size == 0)
+		return (dst);
+	dest = (unsigned char *)dst;
+	if (dest < (unsigned char *)src)
 	{
-		buff[i] = ((unsigned char*)src)[i];
-		++i;
+		while (i < size)
+		{
+			dest[i] = ((unsigned char*)src)[i];
+			i++;
+		}
 	}
-	i = 0;
-	while (i < size)
+	else if ((dest > (unsigned char *)src))
 	{
-		((unsigned char*)dest)[i] = ((unsigned char*)buff)[i];
-		++i;
+		while (i < size)
+		{
+			dest[size - i - 1] = ((unsigned char*)src)[size - i - 1];
+			i++;
+		}
 	}
-	free(buff);
-	buff = NULL;
 	return (dst);
 }

@@ -6,11 +6,11 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:22:03 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/02 18:23:57 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 21:31:42 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
 	unsigned int i;
 	unsigned int source_len;

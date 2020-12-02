@@ -6,11 +6,11 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:42:31 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/02 18:16:06 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 20:43:47 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libht.h"
+#include "libft.h"
 
 char		*ft_strdup(char *s)
 {

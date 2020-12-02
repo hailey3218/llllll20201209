@@ -6,15 +6,16 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:17:24 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/02 18:27:49 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 20:50:46 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+int		ft_strlen(const char *str)
 {
 	int i;
 
-	while (str[i]! = '\0')
+	i = 0;
+	while (str[i] != '\0')
 	{
 		i++;
 	}

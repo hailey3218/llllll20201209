@@ -6,11 +6,11 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 16:26:14 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/21 19:57:38 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 18:15:30 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int i;
 

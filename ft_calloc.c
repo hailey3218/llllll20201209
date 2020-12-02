@@ -6,7 +6,7 @@
 /*   By: hbang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:39:36 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/27 14:39:40 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 16:47:58 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void		*ft_calloc(size_t num, size_t size)
 	p = malloc(size * num);
 	if (p == 0)
 		return (0);
-	ft_memset(p, 0, size * num)
+	ft_memset(p, 0, size * num);
 }

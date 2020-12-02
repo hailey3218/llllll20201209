@@ -6,11 +6,15 @@
 /*   By: hbang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:51:09 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/30 22:44:20 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 18:14:24 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "libft.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 static	int	count(char const *s, char c)
 {
@@ -21,24 +25,27 @@ static	int	count(char const *s, char c)
 	count = 0;
 	if (s == '\0')
 		return (0);
-	if (s[i])
+	while (s[i])
 	{
-		while(s[i] != c && s[i + 1] == c && s[i] != '\0')
+		if(s[i] != c && s[i] != '\0')
+		{
 			count++;
-		i++;
+			while (s[i] != c && s[i])
+				i++;
+		}
+		else if (s[i] == c)
+			i++;
 	}
 	count += 1;
 	return (count);
 }
 
-static int count_len(char const *s, char c)
+static int count_len(char const *s, char c, int i)
 {
 	int length;
-	int i;
 
 	length = 0;
-	i = 0;
-	while(s[i] != c && s[i])
+	while(s[i] != c && s[i] != '\0')
 	{
 		length++;
 		i++;
@@ -46,52 +53,72 @@ static int count_len(char const *s, char c)
 	return (length);
 }
 
-static int	my_free(char **new_s, int j)
+static char	**my_free(char **new_s)
 {
-	while (j > 0)
+	size_t j;
+
+	j = 0;
+	while (new_s[j])
 	{
-		j--;
-		free((void *)new_s[j];
+		free(new_s[j]);
+		j++;
 	}
 	free(new_s);
 	return (0);
 }
 
-static void	my_split(char const *s, char c, char **new_s)
+static char **my_split(char const *s, char c, char **new_s)
 {
 	size_t i;
 	size_t j;
+	size_t k;
 	size_t len;
 
-	len = count_len(s,c);
+	i = 0;
+	len = count_len(s, c, i);
 	i = 0;
 	j = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
-		if (s[i] != c && s[i])
+		k = 0;
+		while (s[i] == c)
+			i++;
+		new_s[j] = (char *)malloc(sizeof(char) * len + 1);
+		if (!new_s[j])
+			return(my_free(new_s));
+		while (s[i] != '\0' && s[i] != c)
 		{
-			new_s[j] = (char *)malloc(sizeof(char) * len + 1);
-			if (!new_s[j])
-				return (my_free((char onst **)new_s, j));
-			ft_strlcpy(new_s[j], s, len + 1);
-			j++;
+			new_s[j][k] = s[i];
+			k++;
+			i++;
 		}
-		i++;
+		new_s[j][k] = '\0';
+		j++;
 	}
-	new_s[i] = '\0';
+	new_s[j] = 0;
 	return(new_s);
 }
 
-char		*ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	size_t	cnt;
 	char	**new_s;
 
-	cnt = count(*s, c);
+	cnt = count(s, c);
 	new_s = (char **)malloc(sizeof(char *) * (cnt));
 	if (new_s == 0)
 		return (0);
-	my_split(*s, c, new_s);
-
+	my_split(s, c, new_s);
+	return (new_s);
 }
-		
+
+int		main(void)
+{
+	printf("ft_split\n\n");
+	char c[] = "hbanginyang";
+	char **rc = ft_split(c, '\n');
+
+	printf("(%s)\n",rc[0]);
+	printf("(%s)\n",rc[1]);
+	free(rc);
+}

@@ -6,13 +6,13 @@
 /*   By: hbang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:41:45 by hbang             #+#    #+#             */
-/*   Updated: 2020/11/27 14:55:56 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/02 18:09:29 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*memccpy(void *dst, const void *src, int c, size_t n)
+void				*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	size_t			i;
 	unsigned char	*new_d;

@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:01:57 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/02 20:41:06 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/03 21:53:44 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void		*ft_memset(void *ptr, int val, size_t size)
 	i = 0;
 	while (i < size)
 	{
-		((unsigned char*)ptr)[i] = (unsigned char) val;
+		((unsigned char *)ptr)[i] = (unsigned char)val;
 		++i;
 	}
-
 	return (ptr);
 }

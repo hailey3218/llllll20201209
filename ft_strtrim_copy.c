@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim_copy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbang <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 18:53:12 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/01 18:56:58 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/03 21:18:37 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-char		*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(const char *s1, char const *set)
 {
 	size_t 	start;
 	size_t	end;
@@ -39,8 +39,13 @@ char		*ft_strtrim(char const *s1, char const *set)
 
 int		main(void)
 {
-	char *r = "hello wolrd!";
-	char *set = "hlde";
-	char *c = ft_strtrim(r, set);
-	printf ("%s", c);
+	char *r = "	\t \t \n  \n\n\n\t";
+	char *set = "";
+	char *c = ft_strtrim(r, " \n\t");
+	printf("%s", c);
+
+	if (!strcmp(c, set))
+		printf("sucess");
+	else
+		printf("fail");
 }

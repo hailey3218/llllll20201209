@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/03 22:16:59 by hbang             #+#    #+#             */
+/*   Updated: 2020/12/03 22:19:24 by hbang            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -22,7 +33,7 @@ void				*ft_memmove(void *dst, const void *src, size_t size);
 void				*ft_memset(void *ptr, int val, size_t size);
 char				**ft_split(char const *s, char c);
 char				*ft_strchr(const char *s, int c);
-char				*ft_strdup(char *s);
+char				*ft_strdup(char const *s);
 char				*ft_strjoin(char const *s1, char const *s2);
 unsigned int		ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned int		ft_strlcpy(char *dest, const char *src, unsigned int size);
@@ -35,4 +46,4 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
-#endif
+# endif

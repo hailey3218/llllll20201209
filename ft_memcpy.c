@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 17:33:57 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/02 21:51:32 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/03 21:29:37 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void		*ft_memcpy(void *dest, const void *src, size_t size)
 	while (i < size)
 	{
 		((unsigned char*)dest)[i] = ((unsigned char*)src)[i];
-		++i;
+		i++;
 	}
+	if (dest == src)
+		return (dest);
 	return (dest);
 }

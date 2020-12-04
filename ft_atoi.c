@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:34:29 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/03 22:37:49 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/04 23:28:22 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int				ft_atoi(const char *str)
 {
 	int			minus;
 	int			i;
-	long		num;
+	long long	num;
 
 	i = 0;
 	minus = 1;

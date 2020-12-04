@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:51:09 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/03 23:40:26 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/04 23:58:54 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,16 @@ static int	count(char const *s, char c)
 
 	i = 0;
 	count = 0;
-	if (s == '\0')
-		return (0);
-	while (s[i] && s[i] == c)
-		i++;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c && s[i])
 		{
 			count++;
-			while (s[i] && s[i] == c)
+			while (s[i] && s[i] != c)
 				i++;
-			continue;
 		}
-		i++;
+		else if (s[i] && s[i] == c)
+			i++;
 	}
 	return (count);
 }
@@ -77,7 +73,7 @@ static char	**my_split(char const *s, char c, char **new_s)
 		k = 0;
 		while (s[i] == c)
 			i++;
-		new_s[j] = (char *)malloc((sizeof(char) * (count_len(s, c, i))) + 1);
+		new_s[j] = (char *)malloc(sizeof(char) * ((count_len(s, c, i)) + 1));
 		if (!new_s[j])
 			return (my_free(new_s));
 		while (s[i] != '\0' && s[i] != c)

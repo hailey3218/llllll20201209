@@ -6,22 +6,22 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:34:29 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/04 23:28:22 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/05 23:30:01 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_atoi(const char *str)
+int					ft_atoi(const char *str)
 {
-	int			minus;
-	int			i;
-	long long	num;
+	long			minus;
+	unsigned int	i;
+	long			num;
 
 	i = 0;
 	minus = 1;
 	num = 0;
-	while (str[i] && ((str[i] >= 8 && str[i] <= 13) || str[i] == ' '))
+	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
@@ -29,12 +29,10 @@ int				ft_atoi(const char *str)
 			minus *= -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		num = num * 10 + (str[i] - '0');
 		i++;
 	}
-	if (num < 0)
-		return ((minus > 0) ? -1 : 0);
-	return (minus * num);
+	return ((int)(minus * num));
 }

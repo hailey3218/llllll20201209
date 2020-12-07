@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 23:10:05 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/07 01:12:03 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/08 01:07:59 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ long int		check_minus(long int n)
 	long int	new;
 
 	if (n < 0)
-	{	
+	{
 		new = n * -1;
 		return (new);
 	}
@@ -46,20 +46,21 @@ char			*ft_itoa(int n)
 	char		*str;
 	int			len;
 	int			sign;
+	long int	new;
 
-	if (n < 0)
-		sign = -1;
-	len = check_len(n);
-	n = check_minus(n);
-	str = (char *)malloc(sizeof(char) * len + 1);
+	new = n;
+	sign = (new < 0) ? -1 : 1;
+	len = check_len(new);
+	new = check_minus(new);
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (0);
 	str[len] = '\0';
 	len--;
 	while (len >= 0)
 	{
-		str[len] = n % 10 + '0';
-		n = n / 10;
+		str[len] = new % 10 + '0';
+		new = new / 10;
 		len--;
 	}
 	if (sign == -1)

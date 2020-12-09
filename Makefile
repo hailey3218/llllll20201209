@@ -6,7 +6,7 @@
 #    By: hbang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/03 22:17:25 by hbang             #+#    #+#              #
-#    Updated: 2020/12/05 21:42:41 by hbang            ###   ########.fr        #
+#    Updated: 2020/12/09 17:06:37 by hbang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,9 @@ SRCS	=	ft_atoi.c \
 			ft_putchar_fd.c\
 			ft_putstr_fd.c\
 			ft_putendl_fd.c\
-			ft_putnbr_fd.c
+			ft_putnbr_fd.c\
+			ft_itoa.c\
+			ft_strmapi.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:51:09 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/05 00:07:28 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/09 16:57:17 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static int	count_len(char const *s, char c, int i)
 	int		length;
 
 	length = 0;
+	if (s[i] == c)
+		i++;
 	while (s[i] != c && s[i] != '\0')
 	{
 		length++;

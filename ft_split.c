@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:51:09 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/09 16:57:17 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/11 20:05:15 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	count(char const *s, char c)
 	count = 0;
 	while (s[i])
 	{
-		if (s[i] != c && s[i])
+		if (s[i] && s[i] != c)
 		{
 			count++;
 			while (s[i] && s[i] != c)
@@ -48,28 +48,26 @@ static int	count_len(char const *s, char c, int i)
 	return (length);
 }
 
-static char	**my_free(char **new_s)
+static void	**my_free(char **new_s, int j)
 {
-	size_t j;
+	int		i;
 
-	j = 0;
-	while (new_s[j])
+	i = 0;
+	while (i < j)
 	{
-		free(new_s[j]);
+		free(new_s[i]);
 		j++;
 	}
 	free(new_s);
-	return (0);
+	return (NULL);
 }
 
-static char	**my_split(char const *s, char c, char **new_s)
+static char	**my_split(char const *s, char c, char **new_s, int j)
 {
-	size_t	i;
-	size_t	j;
-	size_t	k;
+	int		k;
+	int		i;
 
 	i = 0;
-	j = 0;
 	while (s[i] != '\0')
 	{
 		k = 0;
@@ -77,15 +75,17 @@ static char	**my_split(char const *s, char c, char **new_s)
 			i++;
 		new_s[j] = (char *)malloc(sizeof(char) * ((count_len(s, c, i)) + 1));
 		if (!new_s[j])
-			return (my_free(new_s));
-		while (s[i] != '\0' && s[i] != c)
 		{
-			new_s[j][k] = s[i];
-			k++;
-			i++;
+			my_free(new_s, j);
+			return (NULL);
 		}
-		new_s[j][k] = '\0';
-		j++;
+		while (s[i] != '\0' && s[i] != c)
+			new_s[j][k++] = s[i++];
+		if (k > 0)
+		{
+			new_s[j][k] = '\0';
+			j++;
+		}
 	}
 	new_s[j] = 0;
 	return (new_s);
@@ -95,13 +95,14 @@ char		**ft_split(char const *s, char c)
 {
 	size_t	cnt;
 	char	**new_s;
+	int		j;
 
+	j = 0;
 	if (!s)
 		return (0);
 	cnt = count(s, c);
-	new_s = (char **)malloc(sizeof(char) * (cnt + 1));
+	new_s = (char **)malloc(sizeof(char *) * (cnt + 1));
 	if (!new_s)
 		return (0);
-	my_split(s, c, new_s);
-	return (new_s);
+	return (my_split(s, c, new_s, j));
 }

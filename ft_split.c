@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:51:09 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/11 20:05:15 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/11 20:30:46 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	**my_free(char **new_s, int j)
 	while (i < j)
 	{
 		free(new_s[i]);
-		j++;
+		i++;
 	}
 	free(new_s);
 	return (NULL);
@@ -87,7 +87,7 @@ static char	**my_split(char const *s, char c, char **new_s, int j)
 			j++;
 		}
 	}
-	new_s[j] = 0;
+	new_s[j] = NULL;
 	return (new_s);
 }
 

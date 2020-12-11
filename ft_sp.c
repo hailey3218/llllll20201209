@@ -6,11 +6,12 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:51:09 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/12 03:42:38 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/12 03:39:01 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	count(char const *s, char c)
 {
@@ -69,29 +70,31 @@ static void	**my_free(char **new_s, int cnt)
 
 static char	**my_split(char const *s, char c, char **new_s, int cnt)
 {
-	int		i[3];
+	int		k;
+	int		i;
+	int		j;
 
-	i[0] = 0;
-	i[1] = 0;
-	while (s[i[1]] != '\0')
+	j = 0;
+	i = 0;
+	while (s[i] != '\0')
 	{
-		i[2] = 0;
-		while (s[i[1]] != '\0' && s[i[1]] == c)
-			i[1]++;
-		if (s[i[1]] != '\0' && s[i[1]] != c)
+		k = 0;
+		while (s[i] != '\0' && s[i] == c)
+			i++;
+		if (s[i] != '\0' && s[i] != c)
 		{
-			if (!(new_s[i[0]] = (char *)malloc(sizeof(char) *
-							((count_len(s, c, i[1])) + 1))))
+			if (!(new_s[j] = (char *)malloc(sizeof(char) *
+							((count_len(s, c, i)) + 1))))
 			{
 				my_free(new_s, cnt);
 				return (NULL);
 			}
-			while (s[i[1]] != '\0' && s[i[1]] != c)
-				new_s[i[0]][i[2]++] = s[i[1]++];
-			new_s[i[0]++][i[2]] = '\0';
+			while (s[i] != '\0' && s[i] != c)
+				new_s[j][k++] = s[i++];
+			new_s[j++][k] = '\0';
 		}
 	}
-	new_s[i[0]] = NULL;
+	new_s[j] = NULL;
 	return (new_s);
 }
 
@@ -109,4 +112,20 @@ char		**ft_split(char const *s, char c)
 	if (!new_s)
 		return (0);
 	return (my_split(s, c, new_s, cnt));
+}
+
+int		main(void)
+{
+	char *str = " a   b   c   d e ";
+	char **result;
+
+	result = ft_split(str,' ');
+	printf("%s\n", result[0]);
+	printf("%s\n", result[1]);
+	printf("%s\n", result[2]);
+	printf("%s\n", result[3]);
+	printf("%s\n", result[4]);
+	printf("%s\n", result[5]);
+	system("leaks a.out");
+	return (1);
 }

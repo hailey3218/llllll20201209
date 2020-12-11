@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 22:16:59 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/12 01:28:16 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/12 03:22:16 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ unsigned int		ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned int		ft_strlcpy(char *dest, const char *src, unsigned int size);
 int					ft_strlen(const char *str);
 int					ft_strncmp(const char *s1, const char *s2, unsigned int n);
-char				*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char				*ft_strnstr(const char *haystack,
+								const char *needle, size_t len);
 char				*ft_strrchr(const char *str, int ch);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
@@ -52,4 +53,4 @@ void				ft_putnbr_fd(int n, int fd);
 char				*ft_itoa(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
-# endif
+#endif

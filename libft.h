@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 22:16:59 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/09 14:58:28 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/12 01:28:16 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void				*ft_memchr(const void *ptf, int value, size_t num);
+void				*ft_memchr(const void *ptr, int value, size_t num);
 int					ft_memcmp(const void *lhs, const void *rhs, size_t count);
 void				*ft_memcpy(void *dest, const void *src, size_t size);
 void				*ft_memmove(void *dst, const void *src, size_t size);

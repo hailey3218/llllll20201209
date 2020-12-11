@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:51:09 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/12 02:20:59 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/12 02:58:04 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,11 @@ static void	**my_free(char **new_s, int cnt)
 	i = 0;
 	while (i < cnt)
 	{
-		free(new_s[i]);
-		new_s[i] = NULL;
+		if (new_s[i])
+		{
+			free(new_s[i]);
+			new_s[i] = NULL;
+		}
 		i++;
 	}
 	free(new_s);
@@ -65,29 +68,30 @@ static void	**my_free(char **new_s, int cnt)
 	return (NULL);
 }
 
-static char	**my_split(char const *s, char c, char **new_s, int j, int cnt)
+static char	**my_split(char const *s, char c, char **new_s, int cnt)
 {
 	int		k;
 	int		i;
+	int		j;
 
+	j = 0;
 	i = 0;
 	while (s[i] != '\0')
 	{
 		k = 0;
 		while (s[i] != '\0' && s[i] == c)
 			i++;
-		new_s[j] = (char *)malloc(sizeof(char) * ((count_len(s, c, i)) + 1));
-		if (!new_s[j])
+		if (s[i] != '\0' && s[i] != c)
 		{
-			my_free(new_s, cnt);
-			return (NULL);
-		}
-		while (s[i] != '\0' && s[i] != c)
-			new_s[j][k++] = s[i++];
-		if (k > 0)
-		{
-			new_s[j][k] = '\0';
-			j++;
+			if (!(new_s[j] = (char *)malloc(sizeof(char) *
+							((count_len(s, c, i)) + 1))))
+			{
+				my_free(new_s, cnt);
+				return (NULL);
+			}
+			while (s[i] != '\0' && s[i] != c)
+				new_s[j][k++] = s[i++];
+			new_s[j++][k] = '\0';
 		}
 	}
 	new_s[j] = NULL;
@@ -107,12 +111,12 @@ char		**ft_split(char const *s, char c)
 	new_s = (char **)malloc(sizeof(char *) * (cnt + 1));
 	if (!new_s)
 		return (0);
-	return (my_split(s, c, new_s, j, cnt));
+	return (my_split(s, c, new_s, cnt));
 }
 
 int		main(void)
 {
-	char *str = "   a   b   c ";
+	char *str = " a   b   c   d e ";
 	char **result;
 
 	result = ft_split(str,' ');
@@ -120,6 +124,8 @@ int		main(void)
 	printf("%s\n", result[1]);
 	printf("%s\n", result[2]);
 	printf("%s\n", result[3]);
+	printf("%s\n", result[4]);
+	printf("%s\n", result[5]);
 	system("leaks a.out");
 	return (1);
 }

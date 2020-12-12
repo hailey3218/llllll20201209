@@ -6,7 +6,7 @@
 /*   By: hbang <hbang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:51:09 by hbang             #+#    #+#             */
-/*   Updated: 2020/12/12 22:10:59 by hbang            ###   ########.fr       */
+/*   Updated: 2020/12/12 22:32:40 by hbang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int			count(char const *s, char c)
 	return (count);
 }
 
-int			check_len(char const *s, char c)
+int			len_check(char const *s, char c)
 {
 	int		len;
 
@@ -79,7 +79,7 @@ char		**ft_split(char const *s, char c)
 	{
 		while (s[i] != '\0' && s[i] == c)
 			i++;
-		if (!(length = check_len(s + i, c)))
+		if (!(length = len_check(s + i, c)))
 			break ;
 		if (!(new_s[j] = (char *)malloc(sizeof(char) * (length + 1))))
 			return ((char **)my_free(new_s));
